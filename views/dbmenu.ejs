@@ -1,0 +1,31 @@
+<h2>Adatbázis adatainak megjelenítése</h2>
+
+<h3>Megyék</h3>
+<table class="table">
+  <thead><tr><th>ID</th><th>Név</th></tr></thead>
+  <tbody>
+    <% megyek.forEach(m => { %>
+      <tr><td><%= m.id %></td><td><%= m.nev %></td></tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<h3>Városok (részlet)</h3>
+<table class="table">
+  <thead><tr><th>ID</th><th>Név</th><th>MegyeID</th><th>Székhely?</th><th>Megyei jogú?</th></tr></thead>
+  <tbody>
+    <% varosok.forEach(v => { %>
+      <tr><td><%= v.id %></td><td><%= v.nev %></td><td><%= v.megyeid %></td><td><%= v.megyeszekhely %></td><td><%= v.megyeijogu %></td></tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<h3>Lélekszám (részlet)</h3>
+<table class="table">
+  <thead><tr><th>VarosID</th><th>Év</th><th>Nők</th><th>Összesen</th></tr></thead>
+  <tbody>
+    <% lelekszam.forEach(l => { %>
+      <tr><td><%= l.varosid %></td><td><%= l.ev %></td><td><%= l.no %></td><td><%= l.osszesen %></td></tr>
+    <% }) %>
+  </tbody>
+</table>

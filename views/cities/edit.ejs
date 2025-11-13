@@ -1,0 +1,17 @@
+<h1>Város szerkesztése</h1>
+
+<form action="/cities/edit/<%= city.id %>" method="POST">
+  <label>Név:</label>
+  <input type="text" name="nev" class="form-control" value="<%= city.nev %>" required>
+
+  <label>Megye ID:</label>
+  <input type="number" name="megyeid" class="form-control" value="<%= city.megyeid %>" required>
+
+  <label>Megyeszékhely (0/1):</label>
+  <input type="number" name="megyeszekhely" class="form-control" value="<%= city.megyeszekhely %>" required>
+
+  <label>Megyei jogú (0/1):</label>
+  <input type="number" name="megyeijogu" class="form-control" value="<%= city.megyeijogu %>" required>
+
+  <button class="btn btn-primary mt-3" type="submit">Mentés</button>
+</form>

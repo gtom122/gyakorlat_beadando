@@ -1,0 +1,20 @@
+<h2>Admin felület – Felhasználók listája</h2>
+
+<table class="table table-bordered mt-4">
+  <thead>
+    <tr>
+      <th>Név</th>
+      <th>Email</th>
+      <th>Szerepkör</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(u => { %>
+      <tr>
+        <td><%= u.name %></td>
+        <td><%= u.email %></td>
+        <td><%= u.role %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

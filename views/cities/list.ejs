@@ -1,0 +1,29 @@
+<h1>Városok</h1>
+
+<a class="btn btn-success mb-3" href="/cities/new">Új város hozzáadása</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Név</th>
+      <th>Megye ID</th>
+      <th>Megyeszékhely</th>
+      <th>Megyei jogú</th>
+      <th>Műveletek</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cities.forEach(city => { %>
+      <tr>
+        <td><%= city.nev %></td>
+        <td><%= city.megyeid %></td>
+        <td><%= city.megyeszekhely %></td>
+        <td><%= city.megyeijogu %></td>
+        <td>
+          <a class="btn btn-primary btn-sm" href="/cities/edit/<%= city.id %>">Szerkesztés</a>
+          <a class="btn btn-danger btn-sm" href="/cities/delete/<%= city.id %>">Törlés</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
