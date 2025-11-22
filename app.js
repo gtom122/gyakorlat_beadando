@@ -33,7 +33,7 @@ app.use(passport.session());
 
 // passport config (local)
 const LocalStrategy = require('passport-local').Strategy;
-const { findUserByEmail, validatePassword } = require('./models/users-model');
+const { findUserByEmail, validatePassword, findUserById } = require('./models/users-model');
 
 passport.use(new LocalStrategy({ usernameField: 'email' },
   async (email, password, done) => {
@@ -51,7 +51,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' },
 passport.serializeUser((user, done) => done(null, user.id));
 passport.deserializeUser(async (id, done) => {
   try {
-    const { findUserById } = require('./models/users-model');
     const user = await findUserById(id);
     done(null, user);
   } catch (err) {
@@ -68,13 +67,17 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('/', require('./routes/index'));
-app.use('/auth', require('./routes/auth'));
-app.use('/dbmenu', require('./routes/dbmenu'));
-app.use('/messages', require('./routes/messages'));
-app.use('/cities', require('./routes/cities'));
-app.use('/admin', require('./routes/admin'));
+app.use('', require('./routes/index'));
+app.use('auth', require('./routes/auth'));
+app.use('dbmenu', require('./routes/dbmenu'));
+app.use('messages', require('./routes/messages'));
+app.use('cities', require('./routes/cities'));
+app.use('admin', require('./routes/admin'));
 
+// alias a fő index route-nak
+app.use('/app121', require('./routes/index'));
+
+// --- Indítás ---
 async function setupAndStart(port) {
   // init DB connection pool etc.
   await initDb();
