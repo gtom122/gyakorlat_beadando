@@ -7,7 +7,7 @@ const { query } = require("../config/db");
 function isAdmin(req, res, next) {
   if (!req.user || req.user.role !== "admin") {
     req.flash("error", "Nincs jogosultságod az admin oldalhoz.");
-    return res.redirect("/app121/"); // ✅ prefix hozzáadva
+    return res.redirect("/app121/"); 
   }
   next();
 }
@@ -19,7 +19,7 @@ router.get("/", isAdmin, async (req, res) => {
   } catch (err) {
     console.error(err);
     req.flash("error", "Hiba történt az admin oldal betöltésekor.");
-    res.redirect("/app121/"); // ✅ prefix hozzáadva
+    res.redirect("/app121/"); 
   }
 });
 

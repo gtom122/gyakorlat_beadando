@@ -72,5 +72,5 @@ module.exports = {
   initDb,
   query,
   ensureAdminExists,
-  getPool: () => pool  // <--- EZ AZ ÚJ ÉRTÉKES RÉSZ
+  getPool: () => pool
 };

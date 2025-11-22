@@ -21,7 +21,7 @@ router.post("/new", async (req, res) => {
     "INSERT INTO varos (nev, megyeid, megyeszekhely, megyeijogu) VALUES (?,?,?,?)",
     [nev, megyeid, megyeszekhely, megyeijogu]
   );
-  res.redirect("/app121/cities"); // ✅ prefix hozzáadva
+  res.redirect("/app121/cities"); 
 });
 
 // Szerkesztés űrlap
@@ -39,14 +39,14 @@ router.post("/edit/:id", async (req, res) => {
     "UPDATE varos SET nev=?, megyeid=?, megyeszekhely=?, megyeijogu=? WHERE id=?",
     [nev, megyeid, megyeszekhely, megyeijogu, id]
   );
-  res.redirect("/app121/cities"); // ✅ prefix hozzáadva
+  res.redirect("/app121/cities"); 
 });
 
 // Törlés
 router.get("/delete/:id", async (req, res) => {
   const id = req.params.id;
   await db.query("DELETE FROM varos WHERE id = ?", [id]);
-  res.redirect("/app121/cities"); // ✅ prefix hozzáadva
+  res.redirect("/app121/cities"); 
 });
 
 module.exports = router;

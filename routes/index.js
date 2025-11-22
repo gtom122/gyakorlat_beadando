@@ -18,16 +18,16 @@ router.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
   if(!name || !email || !message) {
     req.flash('error', 'Kérlek tölts ki minden mezőt.');
-    return res.redirect('/app121/contact'); // ✅ prefix hozzáadva
+    return res.redirect('/app121/contact'); 
   }
   try {
     await saveMessage(name, email, message);
     req.flash('success', 'Üzeneted elküldve. Köszönjük!');
-    res.redirect('/app121/contact'); // ✅ prefix hozzáadva
+    res.redirect('/app121/contact'); 
   } catch (err) {
     console.error(err);
     req.flash('error', 'Hiba történt az üzenet mentésekor.');
-    res.redirect('/app121/contact'); // ✅ prefix hozzáadva
+    res.redirect('/app121/contact'); 
   }
 });
 

@@ -66,7 +66,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ Routes az /app121 prefix alatt
+// Routes 
 app.use('/app121', require('./routes/index'));
 app.use('/app121/auth', require('./routes/auth'));
 app.use('/app121/dbmenu', require('./routes/dbmenu'));
