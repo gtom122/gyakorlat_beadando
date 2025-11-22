@@ -18,34 +18,34 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light border-bottom bg-white">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/">CégesOldal</a>
+    <a class="navbar-brand fw-bold" href="/app121/">Beadandó főoldal</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="mainMenu" class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="/">Főoldal</a></li>
-        <li class="nav-item"><a class="nav-link" href="/dbmenu">Adatbázis</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact">Kapcsolat</a></li>
-        <li class="nav-item"><a class="nav-link" href="/cities">Városok (CRUD)</a></li>
+        <li class="nav-item"><a class="nav-link" href="/app121/">Főoldal</a></li>
+        <li class="nav-item"><a class="nav-link" href="/app121/dbmenu">Adatbázis</a></li>
+        <li class="nav-item"><a class="nav-link" href="/app121/contact">Kapcsolat</a></li>
+        <li class="nav-item"><a class="nav-link" href="/app121/cities">Városok (CRUD)</a></li>
 
         <% if (user) { %>
-          <li class="nav-item"><a class="nav-link" href="/messages">Üzenetek</a></li>
+          <li class="nav-item"><a class="nav-link" href="/app121/messages">Üzenetek</a></li>
           <% if (user.role === 'admin') { %>
-            <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+            <li class="nav-item"><a class="nav-link" href="/app121/admin">Admin</a></li>
           <% } %>
         <% } %>
       </ul>
 
       <ul class="navbar-nav">
         <% if (!user) { %>
-          <li class="nav-item"><a class="nav-link" href="/auth/login">Bejelentkezés</a></li>
-          <li class="nav-item"><a class="btn btn-primary ms-2" href="/auth/register">Regisztráció</a></li>
+          <li class="nav-item"><a class="nav-link" href="/app121/auth/login">Bejelentkezés</a></li>
+          <li class="nav-item"><a class="btn btn-primary ms-2" href="/app121/auth/register">Regisztráció</a></li>
         <% } else { %>
           <li class="nav-item d-flex align-items-center">
             <span class="me-3 text-secondary">Üdv, <strong><%= user.name %></strong></span>
-            <a class="btn btn-outline-secondary btn-sm" href="/auth/logout">Kijelentkezés</a>
+            <a class="btn btn-outline-secondary btn-sm" href="/app121/auth/logout">Kijelentkezés</a>
           </li>
         <% } %>
       </ul>
@@ -60,7 +60,7 @@
 
 <footer class="border-top bg-white py-3 mt-5">
   <div class="container text-center text-muted small">
-    © 2025 Fiktív cég — Webprogramozás II — Beadandó
+    © 2025 Webprogramozás II gyakorlat beadandó - Mák Balázs (I16GP5), Gellén Tamás (FH4U3E)
   </div>
 </footer>
 

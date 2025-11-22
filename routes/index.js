@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const { saveMessage } = require('../models/messages-model');
@@ -17,16 +18,16 @@ router.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
   if(!name || !email || !message) {
     req.flash('error', 'Kérlek tölts ki minden mezőt.');
-    return res.redirect('/contact');
+    return res.redirect('/app121/contact'); // ✅ prefix hozzáadva
   }
   try {
     await saveMessage(name, email, message);
     req.flash('success', 'Üzeneted elküldve. Köszönjük!');
-    res.redirect('/contact');
+    res.redirect('/app121/contact'); // ✅ prefix hozzáadva
   } catch (err) {
     console.error(err);
     req.flash('error', 'Hiba történt az üzenet mentésekor.');
-    res.redirect('/contact');
+    res.redirect('/app121/contact'); // ✅ prefix hozzáadva
   }
 });
 

@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 const db = require("../config/db");
@@ -20,14 +21,13 @@ router.post("/new", async (req, res) => {
     "INSERT INTO varos (nev, megyeid, megyeszekhely, megyeijogu) VALUES (?,?,?,?)",
     [nev, megyeid, megyeszekhely, megyeijogu]
   );
-  res.redirect("/cities");
+  res.redirect("/app121/cities"); // ✅ prefix hozzáadva
 });
 
 // Szerkesztés űrlap
 router.get("/edit/:id", async (req, res) => {
   const id = req.params.id;
   const [city] = await db.query("SELECT * FROM varos WHERE id = ?", [id]);
-
   res.render("cities/edit", { title: "Város szerkesztése", city });
 });
 
@@ -39,14 +39,14 @@ router.post("/edit/:id", async (req, res) => {
     "UPDATE varos SET nev=?, megyeid=?, megyeszekhely=?, megyeijogu=? WHERE id=?",
     [nev, megyeid, megyeszekhely, megyeijogu, id]
   );
-  res.redirect("/cities");
+  res.redirect("/app121/cities"); // ✅ prefix hozzáadva
 });
 
 // Törlés
 router.get("/delete/:id", async (req, res) => {
   const id = req.params.id;
   await db.query("DELETE FROM varos WHERE id = ?", [id]);
-  res.redirect("/cities");
+  res.redirect("/app121/cities"); // ✅ prefix hozzáadva
 });
 
 module.exports = router;

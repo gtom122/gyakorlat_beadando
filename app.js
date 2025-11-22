@@ -1,4 +1,4 @@
-// app.js
+
 require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
@@ -31,7 +31,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// passport config (local)
+//)
 const LocalStrategy = require('passport-local').Strategy;
 const { findUserByEmail, validatePassword, findUserById } = require('./models/users-model');
 
@@ -41,7 +41,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' },
       const user = await findUserByEmail(email);
       if (!user) return done(null, false, { message: 'Helytelen e-mail vagy jelszó' });
       const ok = await validatePassword(password, user.password);
-      if (!ok) return done(null, false, { message: 'Helytelen e-mail vagy jelszó' });
+     (null, false, { message: 'Helytelen e-mail vagy jelszó' });
       return done(null, user);
     } catch (err) {
       return done(err);
@@ -66,22 +66,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// routes
-app.use('', require('./routes/index'));
-app.use('auth', require('./routes/auth'));
-app.use('dbmenu', require('./routes/dbmenu'));
-app.use('messages', require('./routes/messages'));
-app.use('cities', require('./routes/cities'));
-app.use('admin', require('./routes/admin'));
-
-// alias a fő index route-nak
+// ✅ Routes az /app121 prefix alatt
 app.use('/app121', require('./routes/index'));
+app.use('/app121/auth', require('./routes/auth'));
+app.use('/app121/dbmenu', require('./routes/dbmenu'));
+app.use('/app121/messages', require('./routes/messages'));
+app.use('/app121/cities', require('./routes/cities'));
+app.use('/app121/admin', require('./routes/admin'));
 
 // --- Indítás ---
 async function setupAndStart(port) {
-  // init DB connection pool etc.
   await initDb();
-  // ensure users/messages tables and admin exist
   await ensureAdminExists();
 
   return new Promise((resolve) => {

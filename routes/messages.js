@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const { listMessages } = require('../models/messages-model');
@@ -5,7 +6,7 @@ const { listMessages } = require('../models/messages-model');
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) return next();
   req.flash('error', 'Bejelentkezés szükséges.');
-  res.redirect('/auth/login');
+  res.redirect('/app121/auth/login'); // ✅ prefix hozzáadva
 }
 
 router.get('/', ensureAuthenticated, async (req, res) => {
@@ -15,7 +16,7 @@ router.get('/', ensureAuthenticated, async (req, res) => {
   } catch (err) {
     console.error(err);
     req.flash('error', 'Hiba történt az üzenetek lekérésekor.');
-    res.redirect('/');
+    res.redirect('/app121/'); // ✅ prefix hozzáadva
   }
 });
 

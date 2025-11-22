@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
@@ -13,20 +14,20 @@ router.post('/register', async (req, res) => {
   const { name, email, password, password2 } = req.body;
   if(!name || !email || !password || !password2) {
     req.flash('error', 'Minden mezőt ki kell tölteni.');
-    return res.redirect('/auth/register');
+    return res.redirect('/app121/auth/register');
   }
   if(password !== password2) {
     req.flash('error', 'A jelszavak nem egyeznek.');
-    return res.redirect('/auth/register');
+    return res.redirect('/app121/auth/register');
   }
   const existing = await findUserByEmail(email);
   if(existing) {
     req.flash('error', 'Már létezik felhasználó ezzel az e-mail címmel.');
-    return res.redirect('/auth/register');
+    return res.redirect('/app121/auth/register');
   }
   await createUser(name, email, password, 'user');
   req.flash('success', 'Sikeres regisztráció. Jelentkezz be!');
-  res.redirect('/auth/login');
+  res.redirect('/app121/auth/login');
 });
 
 // Login GET
@@ -36,8 +37,8 @@ router.get('/login', (req, res) => {
 
 // Login POST
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/auth/login',
+  successRedirect: '/app121/',
+  failureRedirect: '/app121/auth/login',
   failureFlash: true
 }));
 
@@ -45,7 +46,7 @@ router.post('/login', passport.authenticate('local', {
 router.get('/logout', (req, res) => {
   req.logout(() => {
     req.flash('success', 'Sikeres kijelentkezés.');
-    res.redirect('/');
+    res.redirect('/app121/');
   });
 });
 

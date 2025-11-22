@@ -1,6 +1,6 @@
 <h1>Városok</h1>
 
-<a class="btn btn-success mb-3" href="/cities/new">Új város hozzáadása</a>
+<a class="btn btn-success mb-3" href="/app121/cities/new">Új város hozzáadása</a>
 
 <table class="table table-bordered">
   <thead>
@@ -20,8 +20,8 @@
         <td><%= city.megyeszekhely %></td>
         <td><%= city.megyeijogu %></td>
         <td>
-          <a class="btn btn-primary btn-sm" href="/cities/edit/<%= city.id %>">Szerkesztés</a>
-          <a class="btn btn-danger btn-sm" href="/cities/delete/<%= city.id %>">Törlés</a>
+          <a class="btn btn-primary btn-sm" href="/app121/cities/edit/<%= city.id %>">Szerkesztés</a>
+          <a class="btn btn-danger btn-sm" href="/app121/cities/delete/<%= city.id %>">Törlés</a>
         </td>
       </tr>
     <% }) %>

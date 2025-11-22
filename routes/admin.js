@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 const { query } = require("../config/db");
@@ -6,7 +7,7 @@ const { query } = require("../config/db");
 function isAdmin(req, res, next) {
   if (!req.user || req.user.role !== "admin") {
     req.flash("error", "Nincs jogosultságod az admin oldalhoz.");
-    return res.redirect("/");
+    return res.redirect("/app121/"); // ✅ prefix hozzáadva
   }
   next();
 }
@@ -18,7 +19,7 @@ router.get("/", isAdmin, async (req, res) => {
   } catch (err) {
     console.error(err);
     req.flash("error", "Hiba történt az admin oldal betöltésekor.");
-    res.redirect("/");
+    res.redirect("/app121/"); // ✅ prefix hozzáadva
   }
 });
 

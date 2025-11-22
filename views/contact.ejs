@@ -1,16 +1,20 @@
 <h2>Kapcsolat</h2>
-<form method="POST" action="/contact">
+
+<form action="/app121/contact" method="POST">
   <div class="mb-3">
-    <label>Név</label>
-    <input class="form-control" name="name" required>
+    <label for="name">Név</label>
+    <input id="name" class="form-control" name="name" required>
   </div>
+
   <div class="mb-3">
-    <label>E-mail</label>
-    <input class="form-control" name="email" type="email" required>
+    <label for="email">E-mail</label>
+    <input id="email" class="form-control" name="email" type="email" required>
   </div>
+
   <div class="mb-3">
-    <label>Üzenet</label>
-    <textarea class="form-control" name="message" rows="5" required></textarea>
+    <label for="message">Üzenet</label>
+    <textarea id="message" class="form-control" name="message" rows="5" required></textarea>
   </div>
+
   <button class="btn btn-primary" type="submit">Küldés</button>
 </form>
