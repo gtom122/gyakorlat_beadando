@@ -1,6 +1,17 @@
 <h2>Kapcsolat</h2>
 
+<!-- Sikerüzenet -->
+<% if (success && success.length > 0) { %>
+  <div class="alert alert-success"><%= success %></div>
+<% } %>
+
+<!-- Hibaüzenet -->
+<% if (error && error.length > 0) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } %>
+
 <form action="/app121/contact" method="POST">
+
   <div class="mb-3">
     <label for="name">Név</label>
     <input id="name" class="form-control" name="name" required>

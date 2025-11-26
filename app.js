@@ -13,6 +13,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
 const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 app.set('layout', 'layout');
@@ -73,6 +74,7 @@ app.use('/app121/dbmenu', require('./routes/dbmenu'));
 app.use('/app121/messages', require('./routes/messages'));
 app.use('/app121/cities', require('./routes/cities'));
 app.use('/app121/admin', require('./routes/admin'));
+app.use('/app121/contact', require('./routes/contact'));
 
 // --- Indítás ---
 async function setupAndStart(port) {
