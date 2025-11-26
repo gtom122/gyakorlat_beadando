@@ -36,11 +36,16 @@ router.get('/login', (req, res) => {
 });
 
 // Login POST
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/app121/',
-  failureRedirect: '/app121/auth/login',
-  failureFlash: true
-}));
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    failureRedirect: '/app121/auth/login',
+    failureFlash: 'Hibás email vagy jelszó!'
+  }),
+  (req, res) => {
+    res.redirect('/app121/');
+  }
+);
 
 // Logout
 router.get('/logout', (req, res) => {

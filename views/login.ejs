@@ -1,5 +1,16 @@
-
 <h2>Bejelentkezés</h2>
+
+<% if (error && error.length > 0) { %>
+  <div class="alert alert-danger">
+    <%= error[0] %>
+  </div>
+<% } %>
+
+<% if (success && success.length > 0) { %>
+  <div class="alert alert-success">
+    <%= success[0] %>
+  </div>
+<% } %>
 
 <form action="/app121/auth/login" method="POST">
     <label>E-mail:</label>
